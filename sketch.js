@@ -45,7 +45,7 @@ Background = loadImage ('rick-and-morty-background-21.jpg')
 }
 
 function setup() {
-	  createCanvas(800,500);
+	  createCanvas(400,250);
     Spaceship.resize(400,0);
 	  Portal.resize(500,600);
 		TheGun.resize(50,0)
