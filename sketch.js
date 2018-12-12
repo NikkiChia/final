@@ -28,7 +28,7 @@ var D = 3
 
 
 function preload() {
-  Portal = loadImage('kisspng-portals-in-fiction-rick-sanchez-minecraft-sticker-assignment-29j3-5b7b992c9817c2_418951021534826796623.png');	
+  Portal = loadImage('portal.png');	
 	Spaceship = loadImage ('rick-and-morty-szechuan-sauce-png.png');
 	TheGun = loadImage('portalgun.png');
 	TheBottle = loadImage('alcohol-bottle-cartoon-png.png');
