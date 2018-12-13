@@ -46,13 +46,14 @@ Background = loadImage ('rick-and-morty-background-21.jpg')
 
 function setup() {
 	  createCanvas(800,500);
-    Spaceship.resize(400,0);
-	  Portal.resize(500,600);
-		TheGun.resize(50,0)
-		TheBottle.resize(50,0)
-		Pickle.resize(50,0)
-		Cloudimg.resize(200,0);
-		Fireimg.resize(30,0);
+    Spaceship.resize(200,0);
+	  Portal.resize(150,300);
+		TheGun.resize(25,0)
+		TheBottle.resize(25,0)
+		Pickle.resize(25,0)
+		Cloudimg.resize(100,0);
+		Fireimg.resize(15,0);
+		Background.resize(1000,0)
 		
 	  Cloud = new Cloudobject(Cloudimg);
 	
@@ -144,10 +145,10 @@ if (Shipflag == 1) {
 	
 	Mid_of_portalX = 3000	
 	
-  var c1 =  SineWave(angle,500,100,3,0)
+  var c1 =  SineWave(angle,350,100,2,0)
 	
 	fill(10, 204, 0,255);
- image(Spaceship,c1,random(-2,2)+250);
+ image(Spaceship,c1,random(-2,2)+150);
   
   angle += 1;
 	
@@ -166,7 +167,7 @@ if (Shipflag == 1) {
 	}	 
 	
 	
-	image(Portal,1100,100); 
+	image(Portal,700,100); 
 
 		
 	
@@ -214,6 +215,7 @@ function keyPressed(){
    var n = 50;
 		if (keyCode === RIGHT_ARROW) {
 			 sg = sg + n
+			print(sg)
 		} else if (keyCode === LEFT_ARROW) {
 			 sg = sg - n
 		}
@@ -228,7 +230,7 @@ function keyPressed(){
 		}
 	
 	if (keyCode === ENTER){
-		Fire[numoffb] = new Laserobject(Fireimg,Cloud.Y,900);
+		Fire[numoffb] = new Laserobject(Fireimg,Cloud.Y,500);
 		Fire[numoffb].velocity = -6;
 		numoffb++
 			
@@ -239,8 +241,8 @@ function keyPressed(){
 function SpaceshipObject(img) {
 	this.img = img;
 	this.X = img.X;
-	this.InitY = 300;
-	this.Y = 300;
+	this.InitY = 200;
+	this.Y = 200;
 	
 	this.move = function(step,ratio) {
 		this.X = InitX+step;
@@ -259,7 +261,7 @@ function SpaceshipObject(img) {
 	}
 //Added HitCheck	
 	this.HitCheck = function (){
-		if ( dist(this.X,this.Y,1050,900) < 617.4) {
+		if ( dist(this.X,this.Y,700,100) < 150) {
 	     Starflag = 1
 		}  
 	}
@@ -294,7 +296,7 @@ function Gunobject(img,X,Y) {
 function mousePressed(){
 
 	
-		var d = dist(mouseX,mouseY,(RMSpaceship.X+209),(RMSpaceship.Y+120));
+		var d = dist(mouseX,mouseY,(RMSpaceship.X+50),(RMSpaceship.Y+15));
 		if (d < 100) {
 			if (flag) {
 	ArrayofGuns.push(new Gunobject(TheGun,mouseX,mouseY));
@@ -331,11 +333,11 @@ function move (){
 
 function Cloudobject(img) {
 	this.img = img;
-	this.InitX = 900
-	this.X = 900
+	this.InitX = 500
+	this.X = 500
 	this.InitY = .0005*width
 	this.Y = img.Y
-	this.gofire = 900 //
+	this.gofire = 500 //
 	
 	this.move = function(step) {
 		this.Y = this.InitY+step;
@@ -353,7 +355,7 @@ function Cloudobject(img) {
 function Laserobject(img,step,X){
 		this.img = img;
 	this.X = X
-	this.InitY = (.0005*width)+80
+	this.InitY = (.0005*width)+10
 	this.Y = img.Y
 	this.step = step
 	this.velocity = 0
